@@ -1,0 +1,65 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <title>Рачунање надморске висине ДГМ</title>
+</head>
+
+<body>
+    <main>
+        <h2>Апликација за рачунање надморске висине за ДГМ</h2>
+        <hr class="hr" />
+        <div class="form-group">
+            <label for="gmrs">Надморска висина ГМРС  из које се природни
+          гас преузима у дистрибутивни систем</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="gmrs"
+          placeholder="Унесите надморску висину параметра h1, мора да буде позитиван број"
+        />
+        <small id="gmrs" class="form-text text-muted"> </small>
+      </div>
+      <div class="form-group">
+        <label for="mrs"
+          >Nадморска висина МРС или МС из које се природни гас преузима у дистрибутивни систем</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="mrs"
+          placeholder="Унесите надморску висину параметра h2, мора да буде позитиван број"
+        />
+      </div>
+      <div class="form-group">
+        <label for="hs"
+          >Аритметичка средина највеће и најмање надморске висине за места
+          испоруке купцима</label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="hs"
+          placeholder="Унесите надморску висину параметра hs, мора да буде позитиван број"
+        />
+      </div>
+      <button type="submit" id="btn" class="btn btn-primary">Израчунај</button>
+    </main>
+    <div id="rezultat"></div>
+    <aside>
+      <button id="btn-info">Више инфо</button>
+      
+        
+    </aside>
+
+    <script src="index.js"></script>
+  </body>
+</html>
