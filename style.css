@@ -1,8 +1,39 @@
+#nav {
+    width: 100%;
+    height: 110px;
+    background-color: #fafcfb;
+    border-bottom: 1px solid lightgray;
+    
+}
+.line {
+    width: 100%;
+    display: block;
+    height: 25px;
+    background-color: #0064b1;
+    opacity: .75;
+}
 
+.img {
+    height: 110px;
+    margin-top: -15px;
+}
+
+.img {
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    
+}
+#navbarNav {
+    margin-left: 50px;
+}
+a {
+    columns: red;
+}
 main {
     position: relative;
     margin: auto;
-    margin-top: 2vh;
+    margin-top: 10vh;
     border: 1px solid black;
     width: 50%;
     display: flex;
@@ -67,6 +98,7 @@ input::placeholder {
 #protekla {
     height: 15px;
 }
+
 #rezultat {
     border: 1px solid black;
     height: 50px;
@@ -75,6 +107,7 @@ input::placeholder {
     width: 50%;
     margin: auto;
     font-size: 20px;
+    margin-bottom: 2vh;
 }
 
 aside {
@@ -101,6 +134,12 @@ aside {
     border: 1px solid black;
     padding: 5px;
 }
+::placeholder {
+    color: red;
+  }
+
+
+
 
 @media only screen and (max-width: 900px) {
     main {
@@ -112,4 +151,9 @@ aside {
     #btn {
         width: 50%;
     }
+    input::placeholder {
+        font-size: 12px;
+      }
+     
   }
+ 
