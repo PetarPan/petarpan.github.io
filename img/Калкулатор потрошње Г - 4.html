@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Калкулатор потрошње Г - 4_files/style.css">
+    <link href="./Калкулатор потрошње Г - 4_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Калкулатор потрошње Г - 4_files/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <title>Калкулатор потрошње Г - 4</title>
+</head>
+
+<body>
+  
+  <nav id="nav">
+    <div class="line"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://www.srbijagas.com/" target="blank"><img class="img" src="./Калкулатор потрошње Г - 4_files/logo.png" alt="logo-srbijagas"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="https://petarpan.github.io/#">ПОЧЕТНА</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">О НАМА</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">ПРОЈЕКТИ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">ПОТРОШАЧИ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">ОДРЖИВИ РАЗВОЈ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">ПРЕС ЦЕНТАР</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">ЈАВНЕ НАБАВКЕ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">ЧЕСТА ПИТАЊА</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">ПЛАН ЈАВНИХ НАБАВКИ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://petarpan.github.io/#">КОНТАКТ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </nav>
+    <main>
+        <h2>Апликација за рачунање сведених количина</h2>
+        <hr class="hr">
+        <div class="form-group">
+            <label for="vr">Измерена количина</label>
+        <input type="number" class="form-control" id="vr" placeholder="Унесите измерену количину">
+        <small id="gmrs" class="form-text text-muted"> </small>
+      </div>
+      <div class="form-group">
+        <label for="pm">Улазни притисак</label>
+        <input type="number" class="form-control" id="pm" placeholder="22" disabled="">
+      </div>
+      <div class="form-group">
+        <label for="h">Надморска висина</label>
+        <input type="number" class="form-control" id="h" placeholder="Унесите надморску висину">
+      </div>
+      <div class="form-group">
+        <label for="ps">Притисак гаса у стандардном стању</label>
+        <input type="number" class="form-control" id="ps" placeholder="1013.25" disabled="">
+      </div>
+
+      <div class="form-group">
+        <label for="period">Период</label>
+        <select id="period">
+          <option value="279.15">Зима</option>
+          <option value="289.15">Лето</option>
+        </select>
+      </div>
+      <div class="form-group">  
+        <label for="hs">Температура гаса у стандардном стању</label>
+        <input type="number" class="form-control" id="ts" placeholder="288.15" disabled="">
+      </div>
+      <div class="form-group">  
+        <label for="q">Квалитет гаса</label>
+        <input type="number" class="form-control" id="q" placeholder="Унесите квалитет гаса">
+      </div>
+     
+      <div class="form-group">
+        <label for="tkomp">Мерило има температурни компензатор</label>
+            <select id="tkomp">
+        <option value="da">Да</option>
+        <option value="ne">Не</option>
+      </select>
+        </div>
+
+        <div class="form-group">
+            <label for="protekla">Протекла количина: </label>
+            <div id="protekla">Протекло је 129 m³</div>
+        </div>
+        <button type="submit" id="btn" class="btn btn-primary">Израчунај</button>
+    </main>
+
+    <div id="rezultat">Утрошено је 136 m³</div>
+
+
+    <script src="./Калкулатор потрошње Г - 4_files/index.js.download"></script>
+
+
+
+</body></html>
