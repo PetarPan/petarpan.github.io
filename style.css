@@ -37,7 +37,7 @@ main {
     
     margin: 2vh auto;
     border: 1px solid black;
-    width: 50%;
+    width: 60%;
     display: block;
     
     
@@ -86,7 +86,7 @@ input::placeholder {
     position: relative;
     display: block;
     margin: 15px auto;
-    width: 300px;
+    width: 37%;
     height: 50px;
 }
 
@@ -138,8 +138,13 @@ aside {
     color: red;
   }
 
-/* @media only screen and (max-width: 991px) {
-    main {
+ @media only screen and (max-width: 991px) {
+     main {
+         width: 80%;
+     }
+}
+    
+    /*main {
         width: 80%;
         z-index: 0;
     }
@@ -160,5 +165,5 @@ aside {
         border: none;
     }
      
-  } */
+   */
  
