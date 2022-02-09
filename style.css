@@ -108,7 +108,7 @@ input::placeholder {
     line-height: 50px;
     width: 75%;
     margin: auto;
-    font-size: 20px;
+    font-size: 1.2vw;
     margin-bottom: 2vh;
 }
 
@@ -142,6 +142,13 @@ aside {
      main {
          width: 80%;
      }
+     #rezultat {
+         font-size: 10px;
+     }
+     input::placeholder {
+        font-size: 12px;
+    }
+
 }
     
     /*main {
