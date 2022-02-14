@@ -1,0 +1,96 @@
+/** @format */
+// varijable
+
+let vr = document.querySelector("#vr");
+let pm = document.querySelector("#pm");
+let h = document.querySelector("#h");
+let ps = document.querySelector("#ps");
+let ts = document.querySelector("#ts");
+let tr = document.querySelector('#tr');
+let q = document.querySelector('#q');
+let period = document.querySelector('#period');
+let tkomp = document.querySelector('#tkomp')
+let protekla = document.querySelector('#protekla')
+let kvalitet = document.querySelector('#kvalitet')
+let form = document.querySelector('#form')
+//konstante
+
+pm = 22;
+ps = 1013.25;
+ts = 288.15;
+
+//funkcija
+
+const svedeneFunk = () => {
+
+    //varijable i konstante
+
+    let rezultat = document.querySelector('#rezultat')
+    let patm = 1016 - 0.108 * h.value
+    let kvalitet2 = 33338.35
+    let proteklaKolicina
+
+
+    //uslovi 
+
+    if (h.value == "e" || h.value =='E' || vr.value == 'e' || vr.value == 'E' ) {
+        rezultat.textContent = "Дoзвољен је унос само нумеричких симбола";
+        rezultat.style.color = "red";
+        protekla.textContent = "";
+        return
+    }
+    if (vr.value == "" || vr.value < 0) {
+        rezultat.textContent = "Унос очитане количине је обавезан и мора да буде већи од 0";
+        rezultat.style.color = "red";
+        protekla.textContent = "";
+        return
+    }
+   
+    if (h.value == "" || vr.value < 0) {
+        rezultat.textContent = "Унос параметра 'h', висине је обавезан и мора да буде већи од 0";
+        rezultat.style.color = "red";
+        protekla.textContent = "";
+        return
+    }
+     if (q.value == "" || q.value < 0) {
+        rezultat.textContent = "Унос параметра квалитет гаса је обавезан и мора да буде већи од 0";
+        rezultat.style.color = "red";
+        protekla.textContent = "";
+        return
+    } 
+     if (q.value < 25000) {
+        rezultat.textContent = "Унесите исправан квалитет";
+        rezultat.style.color = "red";
+        protekla.textContent = "";
+        return
+    }
+   
+
+    if (tkomp.value === 'da') {
+       // protekla.textContent = 'Протекло је ' + Math.round(Number(vr.value) * ((pm + patm) / ps)) + ' m³'
+        proteklaKolicina = Number(vr.value) * ((pm + patm) / ps)
+        protekla.textContent = 'Протекло је ' + Math.round(proteklaKolicina) + ' m³'
+       
+
+    } else {
+        //protekla.textContent = 'Протекло је ' + Math.round(Number(vr.value) * ((pm + patm) / ps) * (ts / period.value)) + ' m³'
+        proteklaKolicina = Number(vr.value) * ((pm + patm) / ps) * (ts / period.value)
+        protekla.textContent = 'Протекло је ' + Math.round(proteklaKolicina) + ' m³'
+        
+    }
+    //rezultat 
+    rezultat.textContent = 'Обрачуната количина износи ' + Math.round(proteklaKolicina * Number(q.value) / kvalitet2) + ' m³'
+    //reset polja
+    vr.value = "";
+    h.value = "";
+    ps.value = "";
+    q.value = "";
+}
+
+form.addEventListener('submit', (e) => {
+
+    e.preventDefault()
+    
+    svedeneFunk()
+    
+});
