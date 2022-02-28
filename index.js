@@ -36,16 +36,25 @@ const svedeneFunk = () => {
   let kvalitet2 = 33338.35;
   let proteklaKolicina;
 
+  let errRezultat = () => {
+    protekla.textContent = ''
+    proteklaKolicina = ''
+    rezultat.classList.add('none')
+    rezultat.classList.remove('display')
+  }
+
   //validation
   
   if (isNaN(vr.value) == true) {
     err1.innerHTML = "Дозвољен је унос само нумеричких карактера";
+    errRezultat()
     return;
   } else {
       err1.innerHTML = ''
   }
   if (isNaN(h.value) == true) {
     err2.innerHTML = "Дозвољен је унос само нумеричких карактера";
+    errRezultat()
     return;
   } else {
     err2.innerHTML = ''
@@ -53,6 +62,7 @@ const svedeneFunk = () => {
 
   if (isNaN(q.value) == true) {
     err3.innerHTML = "Дозвољен је унос само нумеричких карактера";
+    errRezultat()
     return;
   } else {
     err3.innerHTML = ''
@@ -61,16 +71,19 @@ const svedeneFunk = () => {
   if (vr.value == "" || vr.value < 0 || vr.value > 10000) {
     err1.innerHTML =
       "Унос очитане количине мора да буде позитиван број и не већи од 10000";
+      errRezultat()
     return;
   }
 
   if (h.value == "" || h.value < 0 || h.value > 1100) {
     err2.innerHTML =
       "Унос висине мора да буде позитиван број и не већи од 1100";
+      errRezultat()
     return;
   }
   if (q.value == "" || q.value < 0 || q.value < 25000 || q.value > 42000) {
     err3.textContent = "Квалитет мора да буде у опсегу 25000 - 42000";
+    errRezultat()
     return;
   }
 
@@ -96,6 +109,8 @@ const svedeneFunk = () => {
     "Обрачуната количина износи " +
     Math.round((proteklaKolicina * Number(q.value)) / kvalitet2) +
     " m³";
+
+  //reset error
   err1.innerHTML = "";
   err2.innerHTML = "";
   err3.innerHTML = "";
