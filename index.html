@@ -1,131 +1,157 @@
-/** @format */
-// variables
+<!-- @format -->
 
-let vr = document.querySelector("#vr");
-let pm = document.querySelector("#pm");
-let h = document.querySelector("#h");
-let ps = document.querySelector("#ps");
-let ts = document.querySelector("#ts");
-let tr = document.querySelector("#tr");
-let q = document.querySelector("#q");
-let period = document.querySelector("#period");
-let tkomp = document.querySelector("#tkomp");
-let protekla = document.querySelector("#protekla");
-let kvalitet = document.querySelector("#kvalitet");
-let form = document.querySelector("#form");
-let inputs = document.querySelectorAll("input");
-let vrErr = document.querySelector(".vrErr");
-let hErr = document.querySelector(".hErr");
-let qErr = document.querySelector(".qErr");
+<!DOCTYPE html>
+<html lang="en">
 
-let err1 = document.querySelector(".errVr");
-let err2 = document.querySelector(".errH");
-let err3 = document.querySelector(".errQ");
-
-//constant values
-
-pm = 22;
-ps = 1013.25;
-ts = 288.15;
-
-//funkcija
-const svedeneFunk = () => {
-  //variables inside function
-
-  let rezultat = document.querySelector("#rezultat");
-  let patm = 1016 - 0.108 * h.value;
-  let kvalitet2 = 33338.35;
-  let proteklaKolicina;
-
-  let errRezultat = () => {
-    protekla.textContent = ''
-    proteklaKolicina = ''
-    rezultat.classList.add('none')
-    rezultat.classList.remove('display')
-  }
-
-  //validation
+<head>
+  <link rel="icon" href="img/favicon.jpg" type="image/jpg" sizes="162x16">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+  <title>Србијагас - Калкулатор потрошње Г - 4</title>
   
-  if (isNaN(vr.value) == true) {
-    err1.innerHTML = "Дозвољен је унос само нумеричких карактера";
-    errRezultat()
-    return;
-  } else {
-      err1.innerHTML = ''
-  }
-  if (isNaN(h.value) == true) {
-    err2.innerHTML = "Дозвољен је унос само нумеричких карактера";
-    errRezultat()
-    return;
-  } else {
-    err2.innerHTML = ''
-}
+</head>
 
-  if (isNaN(q.value) == true) {
-    err3.innerHTML = "Дозвољен је унос само нумеричких карактера";
-    errRezultat()
-    return;
-  } else {
-    err3.innerHTML = ''
-}
+<body>
 
-  if (vr.value == "" || vr.value < 0 || vr.value > 10000) {
-    err1.innerHTML =
-      "Унос очитане количине мора да буде позитиван број и не већи од 10000";
-      errRezultat()
-    return;
-  }
+  <nav id="nav">
+    <div class="line"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://www.srbijagas.com" target="blank"><img class="img" src="img/logo.png"
+            alt="logo-srbijagas"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse w-100 " id="navbarNav">
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">ПОЧЕТНА</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">О НАМА</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ПРОЈЕКТИ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ПОТРОШАЧИ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ОДРЖИВИ РАЗВОЈ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ПРЕС ЦЕНТАР</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ЈАВНЕ НАБАВКЕ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ЧЕСТА ПИТАЊА</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ПЛАН ЈАВНИХ НАБАВКИ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">КОНТАКТ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </nav>
 
-  if (h.value == "" || h.value < 0 || h.value > 1100) {
-    err2.innerHTML =
-      "Унос висине мора да буде позитиван број и не већи од 1100";
-      errRezultat()
-    return;
-  }
-  if (q.value == "" || q.value < 0 || q.value < 25000 || q.value > 42000) {
-    err3.textContent = "Квалитет мора да буде у опсегу 25000 - 42000";
-    errRezultat()
-    return;
-  }
+  <div class="button text-center">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Начин рачунања сведених количина
+    </button>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+       <p> Овде ће бити појашњен начин рачунања сведених количина, линковање ка <a href="https://www.aers.rs/FILES/PodzakonskiAkti/2010-07-16%20Uredba%20o%20uslovima%20isporuke%20prirodnog%20gasa%20SG%2047-06,%203-10,%2048-10.pdf" target="blank">Уредби</a>  уз евентуални испис формула за рачунање. </p>
+      </div>
+    </div>
+  </div>
+ 
+<form id="form">
+
+  <main >
+    <div class="mb-3">
+    <h2>Апликација за рачунање сведених количина</h2>
+    <hr class="hr" />
+    <div class="form-group">
+      <label for="vr">Измерена количина (m³)</label>
+      <input type="text" class="form-control" id="vr" placeholder="Унесите измерену количину у m³" name="vr"/>
+      <div class="errVr"></div>
+    </div>
+    <div class="form-group">
+      <label for="pm">Улазни притисак</label>
+      <input type="number" class="form-control" id="pm" placeholder="22 mbar" disabled />
+    </div>
+    <div class="form-group">
+      <label for="h">Надморска висина (h)</label>
+      <input type="text" class="form-control" id="h" placeholder="Унесите надморску висину" name="h"/>
+      <div class="errH"></div>    
+    </div>
+    <div class="form-group">
+      <label for="ps">Притисак гаса у стандардном стању</label>
+      <input type="number" class="form-control" id="ps" placeholder="1013.25 mbar" disabled />
+    </div>
+
+    <div class="form-group">
+      <label for="period">Период</label>
+      <select id="period">
+        <option value="279.15">Зима</option>
+        <option value="289.15">Лето</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="hs">Температура гаса у стандардном стању у (K)</label>
+      <input type="number" class="form-control" id="ts" placeholder="288.15 K" disabled />
+    </div>
+    <div class="form-group">
+      <label for="q">Квалитет гаса (кЈ/m³)</label>
+      <input type="text" class="form-control" id="q" placeholder="Унесите квалитет гаса у кЈ/m³" name="q" />
+      <div class="errQ"></div>    </div>
+
+    <div class="form-group">
+      <label for="tkomp">Мерило има температурни компензатор</label>
+      <select id="tkomp">
+        <option value="da">Да</option>
+        <option value="ne">Не</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="protekla">Протекла количина: </label>
+      <div id="protekla"></div>
+    </div>
+    <button type="submit" id="btn" class="btn btn-primary">Израчунај</button>
+    
+  </div>
+  <div id="rezultat" class="mb-3 none"></div>
+  </main>
+</form>
+
+<p class='disclamer'>
+  Резултат рада калкулатора није званична информација
+</p>
+
+<div class="copyright">
+  <p> &#169; Србијагас 2022 | Сва права задржана </p>
+</div>
 
 
-  //temperature compensator od not?
-  if (tkomp.value === "da") {
-    // protekla.textContent = 'Протекло је ' + Math.round(Number(vr.value) * ((pm + patm) / ps)) + ' m³'
-    proteklaKolicina = Number(vr.value) * ((pm + patm) / ps);
-    protekla.textContent =
-      "Протекла количина износи " + Math.round(proteklaKolicina) + " m³";
-  } else {
-    //protekla.textContent = 'Протекло је ' + Math.round(Number(vr.value) * ((pm + patm) / ps) * (ts / period.value)) + ' m³'
-    proteklaKolicina =
-      Number(vr.value) * ((pm + patm) / ps) * (ts / period.value);
-    protekla.textContent =
-      "Протекла количина износи " + Math.round(proteklaKolicina) + " m³";
-  }
 
-  //result
-  rezultat.classList.remove('none');
-  rezultat.classList.add('display');
-  rezultat.textContent =
-    "Обрачуната количина износи " +
-    Math.round((proteklaKolicina * Number(q.value)) / kvalitet2) +
-    " m³";
+  <script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
 
-  //reset error
-  err1.innerHTML = "";
-  err2.innerHTML = "";
-  err3.innerHTML = "";
-
-  //reset input fields
-  vr.value = "";
-  h.value = "";
-  q.value = "";
-  
-};
-
-
-//submit form
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  svedeneFunk();
-});
+</html>
