@@ -1,3 +1,6 @@
+/** @format */
+
+
 .line {
   width: 100%;
   display: block;
@@ -25,6 +28,10 @@ label {
   display: block;
   text-align: center;
   width: 100%;
+}
+
+.button {
+  align-items: center;
 }
 
 #period,
@@ -139,6 +146,25 @@ aside {
   color: red;
 }
 
+.disclamer {
+  color: red;
+  text-align: center;
+}
+
+.copyright {
+  background-color: #0064b1;
+  height: 30px;
+  align-content: center;
+  height: 50px;
+  align-items: center;
+}
+.copyright p {
+  color: whitesmoke;
+  text-align: center;
+  line-height: 50px;
+}
+
+
 @media only screen and (max-width: 991px) {
   main {
     width: 80%;
@@ -153,7 +179,9 @@ aside {
   .errVr,
   .errH,
   .errQ,
-  .display {
-    font-size: 10px;
+  .display,
+  .copyright p,
+  .disclamer {
+    font-size: 11px;
   }
 }
