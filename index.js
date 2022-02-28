@@ -1,3 +1,4 @@
+/** @format */
 // variables
 
 let vr = document.querySelector("#vr");
@@ -93,18 +94,18 @@ const svedeneFunk = () => {
     // protekla.textContent = 'Протекло је ' + Math.round(Number(vr.value) * ((pm + patm) / ps)) + ' m³'
     proteklaKolicina = Number(vr.value) * ((pm + patm) / ps);
     protekla.textContent =
-      "Протекло је " + Math.round(proteklaKolicina) + " m³";
+      "Протекла количина износи " + Math.round(proteklaKolicina) + " m³";
   } else {
     //protekla.textContent = 'Протекло је ' + Math.round(Number(vr.value) * ((pm + patm) / ps) * (ts / period.value)) + ' m³'
     proteklaKolicina =
       Number(vr.value) * ((pm + patm) / ps) * (ts / period.value);
     protekla.textContent =
-      "Протекло је " + Math.round(proteklaKolicina) + " m³";
+      "Протекла количина износи " + Math.round(proteklaKolicina) + " m³";
   }
 
   //result
-  rezultat.classList.remove('none')
-  rezultat.classList.add('display')
+  rezultat.classList.remove('none');
+  rezultat.classList.add('display');
   rezultat.textContent =
     "Обрачуната количина износи " +
     Math.round((proteklaKolicina * Number(q.value)) / kvalitet2) +
