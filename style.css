@@ -5,7 +5,7 @@ body {
 }
 
 .news {
-  width: 160px
+  width: 180px
 }
 
 .news-scroll a {
@@ -23,9 +23,7 @@ body {
   display: inline-block
 }
 
-a {
-  text-decoration: none;
-}
+
 
 
 .line {
@@ -210,5 +208,11 @@ aside {
   .copyright p,
   .disclamer {
     font-size: 11px;
+  }
+  .news {
+    width: 165px
+  }
+  .news span {
+    font-size: 1.7vw;
   }
 }
