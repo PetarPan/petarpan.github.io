@@ -69,15 +69,15 @@ btn.addEventListener("click", (e) => {
             } */
 
     if (tkomp.value === "da") {
-        proteklaKolicina = Number(vr.value) * ((pm + patm) / ps).toFixed(6);
+        proteklaKolicina = Number(vr.value) * ((pm + patm) / ps);
         protekla.textContent = Math.trunc(Number(proteklaKolicina)) + " m³";
     } else {
         proteklaKolicina =
-            Number(vr.value) * ((pm + patm) / ps) * (ts / period.value).toFixed(6);
+            Number(vr.value) * ((pm + patm) / ps) * (ts / period.value));
         protekla.textContent = Math.trunc(proteklaKolicina) + " m³";
     }
     //zaokruzujemo na gornju vrednost
-    normalnaKolicina = (Number(proteklaKolicina) / Number(qkWh.value)).toFixed(6);
+    normalnaKolicina = Number(proteklaKolicina) / Number(qkWh.value);
 
     normalna.textContent = Math.ceil(normalnaKolicina) + " m³";
 
