@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-    <title>Калкулатор потрошње Г - 4 у kWh</title>
+    <title>Калкулатор потрошње Г - 4</title>
 </head>
 
 <body>
@@ -61,140 +61,79 @@
         </nav>
     </nav>
 
-    <a href="svedene.html"><button>Пређите на калкулатор сведених количина</button></a
-		>
-	<marquee class="news-scroll" behavior="scroll" scrollamount="8" direction="left" loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
-        <a href="https://www.srbijagas.com/wp-content/uploads/2021/10/2019.07.05.-Cena-gasa-08.10.2021..pdf" target="blank" class="text-secondary">Цена гаса за јавно снабдевање је 32,28 РСД/m³
+    <a href="svedene.html"><button>Пређите на калкулатор kWh</button></a>
+
+    <marquee class="news-scroll marquee" behavior="scroll" scrollamount="8" direction="left" loop="infinite" onmouseover="this.stop();" onmouseout="this.start();">
+        <a href="https://www.srbijagas.com/wp-content/uploads/2021/10/2019.07.05.-Cena-gasa-08.10.2021..pdf" target="blank" class="text-secondary news">Цена гаса за јавно снабдевање је 32,28 РСД/m³
 			</a>
-        <span class="dot"></span>
-        <a href="https://www.srbijagas.com/?p=12416" target="blank" class="text-secondary">Позив заинтересованим грађанима за увођење гасног прикључка по
+        <span class="dot">-</span>
+        <a href="https://www.srbijagas.com/?p=12416" target="blank" class="text-secondary news">Позив заинтересованим грађанима за увођење гасног прикључка по
 				промотивним условима (до 36 рата)
 			</a>
-        <span class="dot"></span>
-        <a href="https://www.srbijagas.com/?p=13858" target="blank" class="text-secondary">Пуштена у рад гасоводна инфраструктура у Белој Цркви
+        <span class="dot">-</span>
+        <a href="https://www.srbijagas.com/?p=13858" target="blank" class="text-secondary news">Пуштена у рад гасоводна инфраструктура у Белој Цркви
 			</a>
     </marquee>
-		<main>
-			<div class="mb-3">
-				<h2>Апликација за рачунање потрошње природног гаса у kWh</h2>
-				<hr class="hr" />
-				<div class="form-group">
-					<label for="vr">Измерена количина</label>
-					<input
-						type="number"
-						class="form-control"
-						id="vr"
-						name="vr"
-						placeholder="Унесите измерену количину"
-					/>
-					<small id="gmrs" class="form-text text-muted"> </small>
-				</div>
-				<div class="form-group">
-					<label for="pm">Улазни притисак</label>
-					<input
-						type="number"
-						class="form-control"
-						id="pm"
-						name="pm"
-						placeholder="22"
-						disabled
-					/>
-				</div>
-				<div class="form-group">
-					<label for="h">Надморска висина</label>
-					<input
-						type="number"
-						class="form-control"
-						id="h"
-						name="h"
-						placeholder="Унесите надморску висину"
-						maxlength="4"
-					/>
-				</div>
-				<div class="form-group">
-					<label for="ps">Притисак гаса у стандардном стању</label>
-					<input
-						type="number"
-						class="form-control"
-						id="ps"
-						name="ps"
-						placeholder="1013.25"
-						disabled
-					/>
-				</div>
 
-				<div class="form-group">
-					<label for="period">Период</label>
-					<select id="period" name="period">
+    <main>
+        <div class="mb-3">
+            <h2>Апликација за рачунање потрошње природног гаса у kWh</h2>
+            <hr class="hr" />
+            <div class="form-group">
+                <label for="vr">Измерена количина</label>
+                <input type="number" class="form-control" id="vr" name="vr" placeholder="Унесите измерену количину" />
+                <small id="gmrs" class="form-text text-muted"> </small>
+            </div>
+            <div class="form-group">
+                <label for="pm">Улазни притисак</label>
+                <input type="number" class="form-control" id="pm" name="pm" placeholder="22" disabled />
+            </div>
+            <div class="form-group">
+                <label for="h">Надморска висина</label>
+                <input type="number" class="form-control" id="h" name="h" placeholder="Унесите надморску висину" maxlength="4" />
+            </div>
+            <div class="form-group">
+                <label for="ps">Притисак гаса у стандардном стању</label>
+                <input type="number" class="form-control" id="ps" name="ps" placeholder="1013.25" disabled />
+            </div>
+
+            <div class="form-group">
+                <label for="period">Период</label>
+                <select id="period" name="period">
 						<option value="279.15">Зима</option>
 						<option value="289.15">Лето</option>
 					</select>
-				</div>
-				<div class="form-group">
-					<label for="ts">Температура гаса у стандардном стању</label>
-					<input
-						type="number"
-						class="form-control"
-						id="ts"
-						name="ts"
-						placeholder="288.15"
-						disabled
-					/>
-				</div>
-				<div class="form-group">
-					<label for="qkWh">Коефицијент К</label>
-					<input
-						type="number"
-						class="form-control"
-						id="qkWh"
-						name="qkWh"
-						value="1.05538"
-						disabled
-						placeholder="1.05538"
-						minlength="5"
-						maxlength="5"
-					/>
-				</div>
+            </div>
+            <div class="form-group">
+                <label for="ts">Температура гаса у стандардном стању</label>
+                <input type="number" class="form-control" id="ts" name="ts" placeholder="288.15" disabled />
+            </div>
+            <div class="form-group">
+                <label for="q">Квалитет гаса</label>
+                <input type="number" class="form-control" id="q" name="q" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" />
+            </div>
 
-				<div class="form-group">
-					<label for="tkomp">Мерило има температурни компензатор</label>
-					<select id="tkomp" name="tkomp">
+            <div class="form-group">
+                <label for="tkomp">Мерило има температурни компензатор</label>
+                <select id="tkomp" name="tkomp">
 						<option value="da">Да</option>
 						<option value="ne">Не</option>
 					</select>
-				</div>
-				<div class="form-group">
-					<label for="protekla">Протекла количина: </label>
-					<div id="protekla"></div>
-				</div>
-				<div class="form-group">
-					<label for="normalna">Нормална количина: </label>
-					<div id="normalna"></div>
-				</div>
-				<div class="form-group">
-					<label for="GCV">GCV</label>
-					<input
-						type="number"
-						class="form-control"
-						id="GCV"
-						name="GCV"
-						placeholder="11.476524"
-						value="11.476524"
-						disabled
-					/>
-				</div>
-				<button type="submit" id="btn" class="btn btn-primary">
-					Израчунај kWh
-				</button>
-			</div>
-			<div id="rezultat" class="mb-3"></div>
-		</main>
+            </div>
 
-		<script src="kWh.js"></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-			crossorigin="anonymous"
-		></script>
-	</body>
+            <div class="form-group">
+                <label for="protekla">Протекла количина: </label>
+                <div id="protekla"></div>
+            </div>
+            <button type="submit" id="btn" class="btn btn-primary">
+					Израчунај
+				</button>
+        </div>
+        <div id="rezultat" class="mb-3"></div>
+    </main>
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
 </html>
