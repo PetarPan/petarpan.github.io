@@ -155,6 +155,18 @@ aside {
     }
 }
 
+.marquee {
+    border: 2px solid lightgray;
+    padding: 7px;
+    font-size: 1.3rem;
+}
+
+.news {
+    text-decoration: none;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 
 /*main {
         width: 80%;
