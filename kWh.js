@@ -77,7 +77,7 @@ btn.addEventListener("click", (e) => {
         protekla.textContent = Math.trunc(proteklaKolicina) + " m³";
     }
     //zaokruzujemo na gornju vrednost
-    normalnaKolicina = Math.ceil(Number(proteklaKolicina) / Number(qkWh.value));
+    normalnaKolicina = Math.floor(Number(proteklaKolicina) / Number(qkWh.value));
 
     normalna.textContent = Math.ceil(normalnaKolicina) + " m³";
 
