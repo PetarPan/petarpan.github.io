@@ -76,10 +76,10 @@ btn.addEventListener("click", (e) => {
             Number(vr.value) * ((pm + patm) / ps) * (ts / period.value);
         protekla.textContent = Math.trunc(proteklaKolicina) + " m³";
     }
-    //zaokruzujemo na gornju vrednost
+    //zaokruzujemo na donju vrednost
     normalnaKolicina = Math.floor(Number(proteklaKolicina) / Number(qkWh.value));
 
-    normalna.textContent = Math.ceil(normalnaKolicina) + " m³";
+    normalna.textContent = Math.floor(normalnaKolicina) + " m³";
 
     console.log("Protekla kolicina " + proteklaKolicina);
     console.log("Normalna kolicina " + normalnaKolicina);
