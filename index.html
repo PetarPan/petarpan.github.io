@@ -109,8 +109,8 @@
                 <input type="number" class="form-control" id="ts" name="ts" placeholder="288.15" disabled />
             </div>
             <div class="form-group">
-                <label for="q">Квалитет гаса</label>
-                <input type="number" class="form-control" id="q" name="q" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" />
+                <label for="qkWh">Квалитет гаса</label>
+                <input type="number" class="form-control" id="qkWh" name="qkWh" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" value="1.05538" disabled />
             </div>
 
             <div class="form-group">
@@ -120,11 +120,23 @@
 						<option value="ne">Не</option>
 					</select>
             </div>
-
+            <div class="form-group">
+                <label for="qkWh">Коефицијент К</label>
+                <input type="number" class="form-control" id="qkWh" name="qkWh" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" value="1.05538" disabled />
+            </div>
+            <div class="form-group">
+                <label for="GCV">Горња топлотна вредност природног гаса: </label>
+                <input type="number" class="form-control" id="GCV" name="GCV" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" value="11.476524" disabled />
+            </div>
             <div class="form-group">
                 <label for="protekla">Протекла количина: </label>
                 <div id="protekla"></div>
             </div>
+            <div class="form-group">
+                <label for="normalna">Нормална количина: </label>
+                <div id="normalna"></div>
+            </div>
+
             <button type="submit" id="btn" class="btn btn-primary">
 					Израчунај
 				</button>
