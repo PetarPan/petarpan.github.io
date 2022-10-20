@@ -69,11 +69,14 @@ btn.addEventListener("click", (e) => {
             } */
 
     if (tkomp.value === "da") {
-        proteklaKolicina = Number(vr.value) * ((pm + patm) / ps);
+        proteklaKolicina = (Number(vr.value) * ((pm + patm) / ps)).toFixed(6);
         protekla.textContent = Math.trunc(Number(proteklaKolicina)) + " m³";
     } else {
-        proteklaKolicina =
-            Number(vr.value) * ((pm + patm) / ps) * (ts / period.value));
+        proteklaKolicina = (
+            Number(vr.value) *
+            ((pm + patm) / ps) *
+            (ts / period.value)
+        ).toFixed(6);
         protekla.textContent = Math.trunc(proteklaKolicina) + " m³";
     }
     //zaokruzujemo na gornju vrednost
