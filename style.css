@@ -159,12 +159,57 @@ aside {
     border: 2px solid lightgray;
     padding: 7px;
     font-size: 1.3rem;
+    border-radius: 10px;
 }
 
 .news {
     text-decoration: none;
     padding-right: 15px;
     padding-left: 15px;
+}
+
+.news span {
+    font-size: 1.1vw;
+    width: 170px;
+    padding-right: 5px;
+}
+
+.errVr,
+.errH,
+.errQ {
+    color: red;
+    font-size: 1.1vw;
+    text-align: center;
+}
+
+.none {
+    display: none;
+}
+
+.display {
+    display: block;
+    width: 75%;
+    height: 15px;
+    text-align: center;
+    font-size: 1.1vw;
+}
+
+.disclamer {
+    color: red;
+    text-align: center;
+}
+
+.copyright {
+    background-color: #0064b1;
+    height: 30px;
+    line-height: 45px;
+    text-align: center;
+    height: 50px;
+    color: whitesmoke;
+}
+
+.copyright p {
+    line-height: 50px;
 }
 
 
