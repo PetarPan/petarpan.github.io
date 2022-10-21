@@ -13,6 +13,11 @@ let tkomp = document.querySelector("#tkomp");
 let protekla = document.querySelector("#protekla");
 let normalna = document.querySelector("#normalna");
 let GCV = document.querySelector("#GCV");
+let form = document.querySelector("#form");
+let inputs = document.querySelectorAll("input");
+
+let err1 = document.querySelector(".errVr");
+let err2 = document.querySelector(".errH");
 
 //konstante
 
@@ -22,38 +27,57 @@ ts = 288.15;
 
 //funkcija
 
-btn.addEventListener("click", (e) => {
+const kWh = () => {
     //varijable i konstante
 
     let rezultat = document.querySelector("#rezultat");
     let patm = 1016 - 0.108 * h.value;
-    let kvalitet2 = 33338.35;
     let proteklaKolicina;
     let normalnaKolicina;
 
+    let errRezultat = () => {
+        protekla.textContent = "";
+        proteklaKolicina = "";
+        rezultat.classList.add("none");
+        rezultat.classList.remove("display");
+    };
+
     //uslovi
 
-    if (h.value == "e" || h.value == "E" || vr.value == "e" || vr.value == "E") {
-        rezultat.textContent = "Дoзвољен је унос само нумеричких симбола";
-        rezultat.style.color = "red";
+    if (isNaN(vr.value) == true) {
+        err1.innerHTML = "Дозвољен је унос само нумеричких карактера";
+        errRezultat();
         return;
+    } else {
+        err1.innerHTML = "";
     }
-    if (h > 1200) {
-        rezultat.textContent = "Надморска висина не може да буде већа од 1200";
-        rezultat.style.color = "red";
+    if (isNaN(h.value) == true) {
+        err2.innerHTML = "Дозвољен је унос само нумеричких карактера";
+        errRezultat();
         return;
+    } else {
+        err2.innerHTML = "";
     }
-    if (vr.value == "" || vr.value < 0) {
-        rezultat.textContent =
-            "Унос очитане количине је обавезан и мора да буде већи од 0";
-        rezultat.style.color = "red";
+
+    /* if (isNaN(q.value) == true) {
+        err3.innerHTML = "Дозвољен је унос само нумеричких карактера";
+        errRezultat();
+        return;
+    } else {
+        err3.innerHTML = "";
+    } */
+
+    if (vr.value == "" || vr.value < 0 || vr.value > 10000) {
+        err1.innerHTML =
+            "Унос очитане количине мора да буде позитиван број и не већи од 10000";
+        errRezultat();
         return;
     }
 
-    if (h.value == "" || vr.value < 0) {
-        rezultat.textContent =
-            "Унос параметра 'h', висине је обавезан и мора да буде већи од 0";
-        rezultat.style.color = "red";
+    if (h.value == "" || h.value < 0 || h.value > 1100) {
+        err2.innerHTML =
+            "Унос висине мора да буде позитиван број и не већи од 1100";
+        errRezultat();
         return;
     }
     /*  if (q.value == "" || q.value < 0) {
@@ -88,6 +112,9 @@ btn.addEventListener("click", (e) => {
     console.log("Normalna kolicina " + normalnaKolicina);
     console.log("Konacno kWh " + normalnaKolicina * GCV.value);
     //rezultat
+    //result
+    rezultat.classList.remove("none");
+    rezultat.classList.add("display");
 
     rezultat.textContent =
         "Утрошено је " + Math.ceil(normalnaKolicina * GCV.value) + " kWh";
@@ -96,4 +123,9 @@ btn.addEventListener("click", (e) => {
     vr.value = "";
     h.value = "";
     ps.value = "";
+};
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    kWh();
 });
