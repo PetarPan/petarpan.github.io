@@ -72,7 +72,7 @@ label {
     padding: 10px;
 }
 
-input[type="number"] {
+input {
     margin: auto;
     text-align: center;
     width: 75%;
@@ -174,16 +174,19 @@ aside {
     padding-right: 5px;
 }
 
+.q {
+    text-align: center;
+}
+
 .errVr,
 .errH,
-.errQ {
+.errQ,
+.errGCV {
     color: red;
     font-size: 1.1vw;
     text-align: center;
 }
-.q {
-    text-align: center;
-}
+
 .none {
     display: none;
 }
