@@ -18,6 +18,7 @@ let inputs = document.querySelectorAll("input");
 
 let err1 = document.querySelector(".errVr");
 let err2 = document.querySelector(".errH");
+let err3 = document.querySelector(".errGCV");
 
 //konstante
 
@@ -32,6 +33,7 @@ const kWh = () => {
 
     let rezultat = document.querySelector("#rezultat");
     let patm = 1016 - 0.108 * h.value;
+    patm.toFixed(1);
     let proteklaKolicina;
     let normalnaKolicina;
 
@@ -80,17 +82,6 @@ const kWh = () => {
         errRezultat();
         return;
     }
-    /*  if (q.value == "" || q.value < 0) {
-                rezultat.textContent =
-                    "Унос параметра квалитет гаса је обавезан и мора да буде већи од 0";
-                rezultat.style.color = "red";
-                return;
-            }
-            if (q.value < 2000) {
-                rezultat.textContent = "Унесите исправан квалитет";
-                rezultat.style.color = "red";
-                return;
-            } */
 
     if (tkomp.value === "da") {
         proteklaKolicina = (Number(vr.value) * ((pm + patm) / ps)).toFixed(6);
@@ -103,26 +94,51 @@ const kWh = () => {
         ).toFixed(6);
         protekla.textContent = Math.trunc(proteklaKolicina) + " m³";
     }
+    if (GCV.value == "" || GCV.value < 0) {
+        err3.innerHTML =
+            "Унос параметра квалитет гаса је обавезан и мора да буде већи од 0";
+        errRezultat();
+        return -1;
+    } else if (GCV.value < 10 || GCV.value > 12.99) {
+        err3.innerHTML =
+            "Могућ унос квалитета је у распону од 10 - 12 са максимум шест децимала";
+        errRezultat();
+        return -1;
+    } else if (isNaN(GCV.value) == true) {
+        err3.innerHTML =
+            "Дозвољен је унос само нумеричких карактера, користите тачку уместо зареза за децимале";
+        errRezultat();
+        return -1;
+    } else {
+        err3.innerHTML = "";
+    }
     //zaokruzujemo na gornju vrednost
     normalnaKolicina = Number(proteklaKolicina) / Number(qkWh.value);
 
     normalna.textContent = Math.ceil(normalnaKolicina) + " m³";
 
-    console.log("Protekla kolicina " + proteklaKolicina);
-    console.log("Normalna kolicina " + normalnaKolicina);
-    console.log("Konacno kWh " + normalnaKolicina * GCV.value);
+    console.log("Vr: " + vr.value);
+    console.log("pm: " + pm);
+    console.log("ps: " + ps);
+    console.log("Patm: " + patm);
+    console.log("ts: " + ts);
+    console.log("Period: " + period.value);
+    console.log("Protekla kolicina: " + proteklaKolicina);
+    console.log("Normalna kolicina: " + normalnaKolicina);
+    console.log("Konacno kWh: " + normalnaKolicina * GCV.value);
     //rezultat
     //result
     rezultat.classList.remove("none");
     rezultat.classList.add("display");
 
     rezultat.textContent =
-        "Утрошено је " + Math.ceil(normalnaKolicina * GCV.value) + " kWh";
+        "Утрошено је " + Math.ceil(normalnaKolicina * Number(GCV.value)) + " kWh";
     //reset polja
 
     vr.value = "";
     h.value = "";
     ps.value = "";
+    GCV.value = "";
 };
 
 form.addEventListener("submit", (e) => {
