@@ -109,7 +109,7 @@
                         О условима испоруке и обрачуну испорученог гаса можете да се информишете увидом у
                         <a href="https://www.aers.rs/FILES/PodzakonskiAkti/Precisceni/2012-04-21%20Uredba%20o%20uslovima%20za%20isporuku%20prirodnog%20gasa%20SG%2049-22.pdf" target="blank">Уредбу</a
                   >
-                   о условима за испоруку природног гаса која је прописана од стране Агенције за енергетику Републике Србије
+                   о условима за испоруку природног гаса која је прописана од стране Агенције за енергетику Републике Србије од 16 - 24. стране
                   (АЕРС). (У даљем тексту Уредба)
                   <p>1. Измерена количина представља разлику претходног и
                     новоочитаног стања мерила за гас. Информацију о надморској висини
@@ -118,8 +118,8 @@
                     <p>3. Опцију "ДА" везано за температурни компензатор остављате уколико на фактури немате податак о температури.</p>
                     <p>4. Коефицијент корекције одређује ОТС и можете да га видите на следећем <a href="https://www.transportgas-srbija.rs/sr/za-korisnike/koeficijent-korekcije-k/" target="blank">линку</a> или на претходној фактури.
                     </p>
-                    <p>5. "GCV" представља горњу топлотну вредност гаса и при нормалним условима и израчунава се према SRPS EN ISO 6976 узимајући услове за запремину 0 °C и референтну температуру сагоревања од 25 °C и изражена је у kWh//m³. Више о горњој
-                        топлотној вредности можете да се информишете путем <a href="https://www.aers.rs/FILES/PodzakonskiAkti/Precisceni/2012-04-21%20Uredba%20o%20uslovima%20za%20isporuku%20prirodnog%20gasa%20SG%2049-22.pdf">Уредбе</a>.</p>
+                    <p>5. "GCV" представља горњу топлотну вредност гаса и при нормалним условима и израчунава се према SRPS EN ISO 6976 узимајући услове за запремину 0 °C и референтну температуру сагоревања од 25 °C и изражена је у kWh/m³. Више о горњој
+                        топлотној вредности можете да се информишете путем <a href="https://www.aers.rs/FILES/PodzakonskiAkti/Precisceni/2012-04-21%20Uredba%20o%20uslovima%20za%20isporuku%20prirodnog%20gasa%20SG%2049-22.pdf" target="blank">Уредбе</a>.</p>
                     Калкулатор је намењен за за самостално рачунање потрошње у едукативне сврхе и као такав резултат рада калкулатора није званична информација.
                     </p>
                 </div>
@@ -132,23 +132,23 @@
                     <h2>Апликација за рачунање потрошње природног гаса у kWh</h2>
                     <hr class="hr" />
                     <div class="form-group">
-                        <label for="vr">Измерена количина</label>
+                        <label for="vr">Измерена количина (у m³)</label>
                         <input type="number" class="form-control" id="vr" name="vr" placeholder="Унесите измерену количину" />
                         <small id="gmrs" class="form-text text-muted"> </small>
                     </div>
                     <div class="errVr"></div>
                     <div class="form-group">
-                        <label for="pm">Улазни притисак</label>
+                        <label for="pm">Улазни притисак (у mbar)</label>
                         <input type="number" class="form-control" id="pm" name="pm" placeholder="22" disabled />
                     </div>
                     <div class="form-group">
-                        <label for="h">Надморска висина</label>
-                        <input type="number" class="form-control" id="h" name="h" placeholder="Унесите надморску висину" maxlength="4" />
+                        <label for="h">Надморска висина (h)</label>
+                        <input type="number" class="form-control" id="h" name="h" placeholder="Унесите надморску висину" />
                     </div>
                     <div class="errH"></div>
 
                     <div class="form-group">
-                        <label for="ps">Притисак гаса у стандардном стању</label>
+                        <label for="ps">Притисак гаса у стандардном стању (у mbar)</label>
                         <input type="number" class="form-control" id="ps" name="ps" placeholder="1013.25" disabled />
                     </div>
 
@@ -160,9 +160,13 @@
 					</select>
                     </div>
                     <div class="form-group">
-                        <label for="ts">Температура гаса у стандардном стању</label>
+                        <label for="ts">Температура гаса у стандардном стању (у K)</label>
                         <input type="number" class="form-control" id="ts" name="ts" placeholder="288.15" disabled />
-			</div>
+                    </div>
+                    <!--   <div class="form-group">
+                        <label for="qkWh">Квалитет гаса</label>
+                        <input type="number" class="form-control" id="qkWh" name="qkWh" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" value="1.05538" disabled />
+                    </div> -->
 
                     <div class="form-group">
                         <label for="tkomp">Мерило има температурни компензатор</label>
@@ -173,12 +177,13 @@
                     </div>
                     <div class="form-group">
                         <label for="qkWh">Коефицијент К</label>
-                        <input type="number" class="form-control" id="qkWh" name="qkWh" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" value="1.05538" disabled />
+                        <input type="number" class="form-control" id="qkWh" name="qkWh" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" value="1.055385" disabled />
                     </div>
                     <div class="form-group">
-                        <label for="GCV">Горња топлотна вредност природног гаса: (GCV) </label>
-                        <input type="number" class="form-control" id="GCV" name="GCV" placeholder="Унесите квалитет гаса" minlength="5" maxlength="5" value="11.476524" disabled />
+                        <label for="GCV">Горња топлотна вредност природног гаса: (GCV)</label>
+                        <input type="text" class="form-control" id="GCV" name="GCV" placeholder="Унесите квалитет гаса" minlength="2" maxlength="9" />
                     </div>
+                    <div class="errGCV"></div>
                     <div class="form-group">
                         <label for="protekla">Протекла количина: </label>
                         <div id="protekla"></div>
