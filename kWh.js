@@ -19,7 +19,7 @@ let inputs = document.querySelectorAll("input");
 let err1 = document.querySelector(".errVr");
 let err2 = document.querySelector(".errH");
 let err3 = document.querySelector(".errGCV");
-let err3 = document.querySelector(".errqkWh");
+let err4 = document.querySelector(".errqkWh");
 
 //konstante
 
