@@ -18,8 +18,8 @@ let inputs = document.querySelectorAll("input");
 
 let err1 = document.querySelector(".errVr");
 let err2 = document.querySelector(".errH");
-let err3 = document.querySelector(".errGCV");
-let err4 = document.querySelector(".errqkWh");
+let err3 = document.querySelector(".errqkWh");
+let err4 = document.querySelector(".errGCV");
 
 //konstante
 
@@ -96,41 +96,41 @@ const kWh = () => {
         protekla.textContent = Math.trunc(proteklaKolicina) + " m³";
     }
     if (qkWh.value == "" || qkWh.value < 0) {
-        err4.innerHTML =
+        err3.innerHTML =
             "Унос параметра коефицијент корекције је обавезан и мора да буде већи од 0";
         errRezultat();
         return -1;
     } else if (qkWh.value < 1 || qkWh.value > 2) {
-        err4.innerHTML =
+        err3.innerHTML =
             "Могућ унос квалитета је у распону од 1 - 2 са максимум шест децимала";
         errRezultat();
         return -1;
     } else if (isNaN(qkWh.value) == true) {
-        err4.innerHTML =
-            "Дозвољен је унос само нумеричких карактера, користите тачку уместо зареза за децимале";
-        errRezultat();
-        return -1;
-    } else {
-        err4.innerHTML = "";
-    }
-    
-    if (GCV.value == "" || GCV.value < 0) {
-        err3.innerHTML =
-            "Унос параметра квалитет гаса је обавезан и мора да буде већи од 0";
-        errRezultat();
-        return -1;
-    } else if (GCV.value < 1 || GCV.value > 2) {
-        err3.innerHTML =
-            "Могућ унос квалитета је у распону од 10 - 12.999999 са максимум шест децимала";
-        errRezultat();
-        return -1;
-    } else if (isNaN(GCV.value) == true) {
         err3.innerHTML =
             "Дозвољен је унос само нумеричких карактера, користите тачку уместо зареза за децимале";
         errRezultat();
         return -1;
     } else {
         err3.innerHTML = "";
+    }
+    
+    if (GCV.value == "" || GCV.value < 0) {
+        err4.innerHTML =
+            "Унос параметра квалитет гаса је обавезан и мора да буде већи од 0";
+        errRezultat();
+        return -1;
+    } else if (GCV.value < 1 || GCV.value > 2) {
+        err4.innerHTML =
+            "Могућ унос квалитета је у распону од 10 - 12.999999 са максимум шест децимала";
+        errRezultat();
+        return -1;
+    } else if (isNaN(GCV.value) == true) {
+        err4.innerHTML =
+            "Дозвољен је унос само нумеричких карактера, користите тачку уместо зареза за децимале";
+        errRezultat();
+        return -1;
+    } else {
+        err4.innerHTML = "";
     }
     //zaokruzujemo na gornju vrednost
     normalnaKolicina = Number(proteklaKolicina) / Number(qkWh.value);
