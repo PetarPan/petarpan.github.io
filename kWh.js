@@ -85,7 +85,7 @@ const kWh = () => {
     }
 
     if (tkomp.value === "da") {
-        proteklaKolicina = (Number(vr.value) * ((pm + patm) / ps)).toFixed(6);
+        proteklaKolicina = Math.round((Number(vr.value) * ((pm + patm) / ps)));
         protekla.textContent = Math.trunc(Number(proteklaKolicina)) + " m³";
     } else {
         proteklaKolicina = (
@@ -133,7 +133,7 @@ const kWh = () => {
         err4.innerHTML = "";
     }
     //zaokruzujemo na gornju vrednost
-    normalnaKolicina = Number(proteklaKolicina) / Number(qkWh.value);
+    normalnaKolicina = Math.round(Number(proteklaKolicina) / Number(qkWh.value));
 
     normalna.textContent = Math.ceil(normalnaKolicina) + " m³";
 
@@ -145,20 +145,21 @@ const kWh = () => {
     console.log("Period: " + period.value);
     console.log("Protekla kolicina: " + proteklaKolicina);
     console.log("Normalna kolicina: " + normalnaKolicina);
-    console.log("Konacno kWh: " + normalnaKolicina * GCV.value);
+    console.log("Energija kWh: " + normalnaKolicina * GCV.value);
     //rezultat
     //result
     rezultat.classList.remove("none");
     rezultat.classList.add("display");
 
     rezultat.textContent =
-        "Утрошено је " + Math.ceil(normalnaKolicina * Number(GCV.value)) + " kWh";
+        "Утрошено је " + Math.round(normalnaKolicina * Number(GCV.value)) + " kWh";
     //reset polja
 
     vr.value = "";
     h.value = "";
     ps.value = "";
     GCV.value = "";
+    qkWh.value = "";
 };
 
 form.addEventListener("submit", (e) => {
