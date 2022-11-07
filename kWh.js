@@ -86,14 +86,14 @@ const kWh = () => {
 
     if (tkomp.value === "da") {
         proteklaKolicina = Math.round((Number(vr.value) * ((pm + patm) / ps)));
-        protekla.textContent = Math.trunc(Number(proteklaKolicina)) + " m³";
+        protekla.textContent = Math.round(Number(proteklaKolicina)) + " m³";
     } else {
         proteklaKolicina = (
-            Number(vr.value) *
+            Math.round(Number(vr.value) *
             ((pm + patm) / ps) *
             (ts / period.value)
-        ).toFixed(6);
-        protekla.textContent = Math.trunc(proteklaKolicina) + " m³";
+        ));
+        protekla.textContent = Math.round(proteklaKolicina) + " m³";
     }
     if (qkWh.value == "" || qkWh.value < 0) {
         err3.innerHTML =
@@ -135,7 +135,7 @@ const kWh = () => {
     //zaokruzujemo na gornju vrednost
     normalnaKolicina = Math.round(Number(proteklaKolicina) / Number(qkWh.value));
 
-    normalna.textContent = Math.ceil(normalnaKolicina) + " m³";
+    normalna.textContent = Math.round(normalnaKolicina) + " m³";
 
     console.log("Vr: " + vr.value);
     console.log("pm: " + pm);
@@ -145,7 +145,7 @@ const kWh = () => {
     console.log("Period: " + period.value);
     console.log("Protekla kolicina: " + proteklaKolicina);
     console.log("Normalna kolicina: " + normalnaKolicina);
-    console.log("Energija kWh: " + normalnaKolicina * GCV.value);
+    console.log("Energija kWh: " + Math.round(normalnaKolicina * GCV.value));
     //rezultat
     //result
     rezultat.classList.remove("none");
