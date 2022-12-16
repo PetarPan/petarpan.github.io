@@ -182,3 +182,9 @@ counterContainer.innerHTML = visitCount;
 
 console.log(visitCount);
 
+function cb(response) {
+    let visits = document.getElementById("visits");
+    visits.innerText = response.value;
+    console.log("Number of visits is " + visits.innerHTML);
+}
+
