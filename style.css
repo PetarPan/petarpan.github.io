@@ -1,4 +1,7 @@
 /
+#visits {
+    display: none;
+}
 .website-counter {
     display: none;
 }
