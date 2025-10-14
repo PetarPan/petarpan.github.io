@@ -3,19 +3,13 @@
 
 let vr = document.querySelector("#vr");
 let pm = document.querySelector("#pm");
-let h = document.querySelector("#h");
-let ps = document.querySelector("#ps");
-let ts = document.querySelector("#ts");
-let tr = document.querySelector("#tr");
 let qkWh = document.querySelector("#qkWh");
-let period = document.querySelector("#period");
 let tkomp = document.querySelector("#tkomp");
 let protekla = document.querySelector("#protekla");
 let normalna = document.querySelector("#normalna");
 let GCV = document.querySelector("#GCV");
 let form = document.querySelector("#form");
 let inputs = document.querySelectorAll("input");
-let kf = document.querySelectorAll("#kf");
 
 let err1 = document.querySelector(".errVr");
 let err2 = document.querySelector(".errH");
@@ -24,19 +18,16 @@ let err4 = document.querySelector(".errGCV");
 
 //konstante
 
-//pm = 22;
-ps = 1013.25;
-ts = 288.15;
-
 //funkcija
 
 const kWh = () => {
     //varijable i konstante
 
     let rezultat = document.querySelector("#rezultat");
-    let patm = 1016 - (0.108 * h.value).toFixed(1);
+
     //patm.toFixed(1);
-    let proteklaKolicina;
+    /* 	let proteklaKolicina;
+     */
     let normalnaKolicina;
 
     let errRezultat = () => {
@@ -55,56 +46,14 @@ const kWh = () => {
     } else {
         err1.innerHTML = "";
     }
-    if (isNaN(h.value) == true) {
-        err2.innerHTML = "Дозвољен је унос само нумеричких карактера";
-        errRezultat();
-        return;
-    } else {
-        err2.innerHTML = "";
-    }
 
-    /* if (isNaN(q.value) == true) {
-            err3.innerHTML = "Дозвољен је унос само нумеричких карактера";
-            errRezultat();
-            return;
-        } else {
-            err3.innerHTML = "";
-        } */
-
-    if (vr.value == "" || vr.value < 0 || vr.value > 10000) {
+    if (vr.value == "" || vr.value < 0 || vr.value > 1000000) {
         err1.innerHTML =
-            "Унос очитане количине мора да буде позитиван број и не већи од 10000";
+            "Унос очитане количине мора да буде позитиван број и не већи од 1.000.000";
         errRezultat();
         return;
     }
 
-    if (h.value == "" || h.value < 0 || h.value > 1100) {
-        err2.innerHTML =
-            "Унос висине мора да буде позитиван број и не већи од 1100";
-        errRezultat();
-        return;
-    }
-
-    if (tkomp.value === "da") {
-        let prik = (pm.value / 1000).toFixed(3);
-        console.log("prik ceo:" + prik);
-        /* kf = Number(
-            ((prik * 1000 + patm) * ts * (1 + 0.0029 + prik)) / (ps * period.value)
-        );
-        kf.textContent = Number(
-            ((prik * 1000 + patm) * ts * (1 + 0.0029 + prik)) / (ps * period.value)
-        ); */
-        kf = 22;
-        kf.innerHTML = 22;
-        protekla = Number(vr.value * kf);
-        console.log(kf);
-        protekla.textContent = Number(vr.value * kf);
-    } else {
-        proteklaKolicina = Math.round(
-            Number(vr.value) * ((pm + patm) / ps) * (ts / period.value)
-        );
-        protekla.textContent = Math.round(proteklaKolicina) + " m³";
-    }
     if (qkWh.value == "" || qkWh.value < 0) {
         err3.innerHTML =
             "Унос параметра коефицијент корекције је обавезан и мора да буде већи од 0";
@@ -116,12 +65,12 @@ const kWh = () => {
         errRezultat();
         return -1;
     } else if (isNaN(qkWh.value) == true) {
-        // err3.innerHTML =
-        ("Дозвољен је унос само нумеричких карактера, користите тачку уместо зареза за децимале");
+        err3.innerHTML =
+            "Дозвољен је унос само нумеричких карактера, користите тачку уместо зареза за децимале";
         errRezultat();
         return -1;
     } else {
-        // err3.innerHTML = "";
+        err3.innerHTML = "";
     }
 
     if (GCV.value == "" || GCV.value < 0) {
@@ -142,34 +91,42 @@ const kWh = () => {
     } else {
         err4.innerHTML = "";
     }
+    let proteklaKolicina = vr.value;
     //zaokruzujemo na gornju vrednost
-    normalnaKolicina = Math.round(Number(proteklaKolicina) / Number(qkWh.value));
+    normalnaKolicina = Math.round(Number(proteklaKolicina) * (pm.value / 1000) / Number(qkWh.value));
 
-    normalna.textContent = Math.round(normalnaKolicina) + " m³";
+    /*  normalna.textContent =
+         Math.round(normalnaKolicina).toLocaleString("sr-RS", {
+             minimumFractionDigits: 3,
+             maximumFractionDigits: 3,
+         }) + " m³"; */
 
     console.log("Vr: " + vr.value);
-    console.log("pm: " + pm.value);
-    console.log("ps: " + ps);
-    console.log("Patm: " + patm);
-    console.log("ts: " + ts);
-    console.log("Period: " + period.value);
     console.log("Protekla kolicina: " + proteklaKolicina);
     console.log("Normalna kolicina: " + normalnaKolicina);
     console.log("Energija kWh: " + Math.round(normalnaKolicina * GCV.value));
+
+    //prikaz u delu Protekla količina
+
+    protekla.textContent = proteklaKolicina;
+    //prikaz u delu Normalna količina
+
+    normalna.textContent = normalnaKolicina;
     //rezultat
     //result
     rezultat.classList.remove("none");
     rezultat.classList.add("display");
 
-    rezultat.textContent =
-        "Утрошено је " + Math.round(normalnaKolicina * Number(GCV.value)) + " kWh";
+    let energija = Math.round(normalnaKolicina * Number(GCV.value));
+    rezultat.textContent = "Утрошено је " + energija + " kWh";
+
     //reset polja
 
-    vr.value = "";
+    /* vr.value = "";
     h.value = "";
     ps.value = "";
     GCV.value = "";
-    qkWh.value = "";
+    qkWh.value = ""; */
 };
 
 form.addEventListener("submit", (e) => {
