@@ -155,11 +155,11 @@
             "Утрошено је " + Math.round(normalnaKolicina * Number(GCV.value)) + " kWh";
         //reset polja
 
-        vr.value = "";
+       /*  vr.value = "";
         h.value = "";
         ps.value = "";
         GCV.value = "";
-        qkWh.value = "";
+        qkWh.value = ""; */
     };
 
     form.addEventListener("submit", (e) => {
