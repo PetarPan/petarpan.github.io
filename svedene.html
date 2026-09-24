@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-    <title>Калкулатор потрошње сведених количина Г - 4</title>
+    <title>Калкулатор потрошње Г - 4</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <div class="line"></div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="http://www.srbijagas.com" target="blank"><img class="img" src="logo.png" alt="logo-srbijagas" /></a>
+                <a class="navbar-brand" href="http://www.srbijagas.com" target="blank"><img class="img" src="img/logo.png" alt="logo-srbijagas" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -61,7 +61,8 @@
         </nav>
     </nav>
 
-    <a href="index.html"><button>Пређите на калкулатор kWh</button></a>
+    <a href="index.html"><button>Пређите на калкулатор за комерцијална мерила &lt; Г-10</button></a>
+    <a href="svedene.html"><button>Пређите на калкулатор сведених количина</button></a>
 
     <div class="container mt-2 mb-2">
         <div class="row">
@@ -101,108 +102,104 @@
 
         <div class="button text-center">
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Начин рачунања сведених количина
+              Начин рачунања у kWh
             </button>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <p>
                         О условима испоруке и обрачуну испорученог гаса можете да се информишете увидом у
-                        <a href="https://www.aers.rs/media/FILES/PodzakonskiAkti/Precisceni/2012-04-21%20Uredba%20o%20uslovima%20za%20isporuku%20prirodnog%20gasa%20SG%2049-22.pdf" target="blank">Уредбу</a
+                        <a href="https://www.aers.rs/FILES/PodzakonskiAkti/Precisceni/2012-04-21%20Uredba%20o%20uslovima%20za%20isporuku%20prirodnog%20gasa%20SG%2049-22.pdf" target="blank">Уредбу</a
                   >
-                   о условима за испоруку природног гаса која је прописана од стране Агенције за енергетику Републике Србије
-                  (АЕРС).
+                   о условима за испоруку природног гаса која је прописана од стране Агенције за енергетику Републике Србије од 16 - 24. стране
+                  (АЕРС). (У даљем тексту Уредба)
                   <p>1. Измерена количина представља разлику претходног и
                     новоочитаног стања мерила за гас. Информацију о надморској висини
-                    можете да пронађете на својој фактури.</p>
-                    <p>2. Летњи месеци обухватају
-                      период од априла до септембра, а зимски месеци обухватају период од
-                      октобра до марта.</p>   
-                      <p>3. О квалитету гаса у датом периоду можете да се
-                        информишете на следећем
-                        <a
-                          href="http://www.transportgas-srbija.rs/sr/za-korisnike/kvalitet-gasa/"
-                          target="blank"
-                          >линку</a
-                        >
-                        или га можете преузети са последње фактуре. </p>
-                        <p>4. Опцију "ДА" везано за
-                          температурни компензатор остављате уколико на фактури немате податак
-                          о температури.Уколико се мерило налази у унутрашњем простору изаберите опцију "ДА" невезано да ли је исто са или без температурног комензатора.</p> 
-                          Калкулатор је намењен за за самостално рачунање
-                  потрошње у едукативне сврхе и као такав резултат рада калкулатора
-                  није званична информација.
-                </p>
-              </div>
+                    можете да пронађете на својој фактури или кликом на следећи <a href="https://www.transportgas-srbija.rs/sr/za-korisnike/gmrs-nadmorske-visine/" target="blank">линк</a>.</p>
+                    <p>2. Летњи месеци обухватају период од априла до септембра, а зимски месеци обухватају период од октобра до марта.</p>
+                    <p>3. Опцију "ДА" везано за температурни компензатор остављате уколико на фактури немате податак о температури. Уколико се мерило налази у унутрашњем простору изаберите опцију "ДА" невезано да ли је исто са или без температурног комензатора.</p>
+                    <p>4. Коефицијент корекције одређује ОТС и можете да га видите на следећем <a href="https://www.transportgas-srbija.rs/sr/za-korisnike/koeficijent-korekcije-k/" target="blank">линку</a> или на претходној фактури.
+                    </p>
+                    <p>5. "GCV" представља горњу топлотну вредност гаса и при нормалним условима и израчунава се према SRPS EN ISO 6976 узимајући услове за запремину 0 °C и референтну температуру сагоревања од 25 °C и изражена је у kWh/m³. Више о горњој
+                        топлотној вредности можете да се информишете путем <a href="https://www.aers.rs/FILES/PodzakonskiAkti/Precisceni/2012-04-21%20Uredba%20o%20uslovima%20za%20isporuku%20prirodnog%20gasa%20SG%2049-22.pdf" target="blank">Уредбе</a>.</p>
+                    Калкулатор је намењен за самостално рачунање потрошње и као такав резултат рада није званична информација.
+                    </p>
+                </div>
             </div>
-          </div>
-      
+        </div>
 
-<form id="form">
-        <main>
-            <div class="mb-3">
-                <h2>Апликација за рачунање сведених количина у m³</h2>
-                <hr class="hr" />
-                <div class="form-group">
-                    <label for="vr">Измерена количина</label>
-                    <input type="number" class="form-control" id="vr" name="vr" placeholder="Унесите измерену количину" />
-                    <small id="gmrs" class="form-text text-muted"> </small>
-                </div>
-                <div class="errVr"></div>
-                <div class="form-group">
-                    <label for="pm">Улазни притисак</label>
-                    <input type="number" class="form-control" id="pm" name="pm" placeholder="22" disabled />
-                </div>
-                <div class="form-group">
-                    <label for="h">Надморска висина</label>
-                    <input type="number" class="form-control" id="h" name="h" placeholder="Унесите надморску висину" maxlength="4" />
-                </div>
-                <div class="errH"></div>
-                <div class="form-group">
-                    <label for="ps">Притисак гаса у стандардном стању</label>
-                    <input type="number" class="form-control" id="ps" name="ps" placeholder="1013.25" disabled />
-                </div>
+        <form id="form">
+            <main>
+                <div class="mb-3">
+                    <h2>Апликација за рачунање потрошње природног гаса у kWh за домаћинства (Г-4)</h2>
+                    </br>
 
-                <div class="form-group">
-                    <label for="period">Период</label>
-                    <select id="period" name="period">
+                    <hr class="hr" />
+                    <div class="form-group">
+                        <label for="vr">Измерена количина (у m³)</label>
+                        <input type="number" class="form-control" id="vr" name="vr" placeholder="Унесите измерену количину" />
+                        <small id="gmrs" class="form-text text-muted"> </small>
+                    </div>
+                    <div class="errVr"></div>
+                    <div class="form-group">
+                        <label for="pm">Улазни притисак (у bar)</label>
+                        <input type="number" class="form-control" id="pm" name="pm" step="0.001" min="0" max="6" placeholder="0.022 za 22 mbar, 1.5 za 1.5 bar..." />
+                    </div>
+                    <div class="form-group">
+                        <label for="h">Надморска висина (h)</label>
+                        <input type="number" class="form-control" id="h" name="h" placeholder="Унесите надморску висину" />
+                    </div>
+                    <div class="errH"></div>
+
+                    <div class="form-group">
+                        <label for="ps">Притисак гаса у стандардном стању (у mbar)</label>
+                        <input type="number" class="form-control" id="ps" name="ps" placeholder="1013.25" disabled />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="period">Период</label>
+                        <select id="period" name="period">
 						<option value="279.15">Зима</option>
 						<option value="289.15">Лето</option>
 					</select>
-                </div>
-                <div class="form-group">
-                    <label for="ts">Температура гаса у стандардном стању</label>
-                    <input type="number" class="form-control" id="ts" name="ts" placeholder="288.15" disabled />
-                </div>
-                <div class="form-group">
-                    <label for="q">Квалитет гаса</label>
-                    <input type="text" class="form-control q" id="q" name="q" placeholder="Унесите квалитет гаса" minlength="5" maxlength="8" />
-                </div>
-                <div class="errQ"></div>
-                <div class="form-group">
-                    <label for="tkomp">Мерило има температурни компензатор</label>
-                    <select id="tkomp" name="tkomp">
-						<option value="da">Да</option>
-						<option value="ne">Не</option>
-					</select>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ts">Температура гаса у стандардном стању (у K)</label>
+                        <input type="number" class="form-control" id="ts" name="ts" placeholder="288.15" disabled />
+                    </div>
 
-                <div class="form-group">
-                    <label for="protekla">Протекла количина: </label>
-                    <div id="protekla"></div>
-                </div>
-                <button type="submit" id="btn" class="btn btn-primary">
+
+                    <div class="form-group">
+                        <label for="qkWh">Коефицијент К</label>
+                        <input type="text" class="form-control" id="qkWh" name="qkWh" placeholder="Унесите коефицијент корекције" minlength="1" maxlength="8" />
+                    </div>
+                    <div class="errqkWh"></div>
+                    <div class="form-group">
+                        <label for="GCV">Горња топлотна вредност природног гаса: (GCV)</label>
+                        <input type="text" class="form-control" id="GCV" name="GCV" placeholder="Унесите квалитет гаса" minlength="2" maxlength="9" />
+                    </div>
+                    <div class="errGCV"></div>
+                    <div class="form-group">
+                        <label for="protekla">Протекла количина: </label>
+                        <div id="protekla"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="normalna">Нормална количина: </label>
+                        <div id="normalna"></div>
+                    </div>
+
+                    <button type="submit" id="btn" class="btn btn-primary">
 					Израчунај
 				</button>
-            </div>
-            <div id="rezultat" class="mb-3"></div>
-        </main>
-    </form>
-    <p class="disclamer">Резултат рада калкулатора није званична информација</p>
-    <p class="copyright">&#169; Србијагас 2022 | Сва права задржана</p>
+                </div>
+                <div id="rezultat" class="mb-3"></div>
+            </main>
+        </form>
 
-        <script src="svedene.js"></script>
+        <p class="disclamer">Резултат рада калкулатора није званична информација</p>
+        <p class="copyright">&#169; Србијагас 2022 | Сва права задржана</p>
+
+        <script src="tpg.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
-
