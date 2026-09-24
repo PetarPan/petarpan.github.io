@@ -79,9 +79,9 @@ const kWh = () => {
         err2.innerHTML = "";
     }
 
-    if (vr.value == "" || vr.value < 0 || vr.value > 100000) {
+    if (vr.value == "" || vr.value < 0 || vr.value > 1000000) {
         err1.innerHTML =
-            "Унос очитане количине мора да буде позитиван број и не већи од 100000";
+            "Унос очитане количине мора да буде позитиван број и не већи од 1000000";
         errRezultat();
         return;
     }
