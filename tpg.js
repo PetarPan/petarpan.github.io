@@ -46,11 +46,9 @@ const kWh = () => {
     let pmBarTotal = pAbs;
 
     if (pmBarTotal >= 1000 && pmBarTotal < 8000) {
-        if (pmBarTotal <= 1000) {
-            z = 0;
-        } else {
-            z = 1 / (1 + (0.003 * pm) / 1000);
-        }
+
+        z = 1 / (1 + (0.003 * pm) / 1000);
+
     }
     console.log("z = " + z);
     console.log("pmMbar = " + pmMbar);
