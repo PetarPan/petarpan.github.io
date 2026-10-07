@@ -51,7 +51,6 @@ const kWh = () => {
     console.log("z = " + z);
     console.log("pmMbar = " + pmMbar);
     console.log("pAbs = " + pAbs);
-    console.log("patm = " + patm);
     //patm.toFixed(1);
     let proteklaKolicina;
     let normalnaKolicina;
