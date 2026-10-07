@@ -46,11 +46,16 @@ const kWh = () => {
     let pmBarTotal = pAbs;
 
     if (pmBarTotal >= 1000 && pmBarTotal < 8000) {
-        z = 1 / (1 + (0.003 * pmBarTotal) / 1000);
+        if (pmBarTotal <= 1000) {
+            z = 0;
+        } else {
+            z = 1 / (1 + (0.003 * pm) / 1000);
+        }
     }
     console.log("z = " + z);
     console.log("pmMbar = " + pmMbar);
     console.log("pAbs = " + pAbs);
+    console.log("patm = " + patm);
     //patm.toFixed(1);
     let proteklaKolicina;
     let normalnaKolicina;
@@ -79,9 +84,9 @@ const kWh = () => {
         err2.innerHTML = "";
     }
 
-    if (vr.value == "" || vr.value < 0 || vr.value > 1000000) {
+    if (vr.value == "" || vr.value < 0 || vr.value > 100000) {
         err1.innerHTML =
-            "Унос очитане количине мора да буде позитиван број и не већи од 1000000";
+            "Унос очитане количине мора да буде позитиван број и не већи од 100000";
         errRezultat();
         return;
     }
