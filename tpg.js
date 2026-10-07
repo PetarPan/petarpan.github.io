@@ -42,15 +42,24 @@ const kWh = () => {
     //apsolutni pritisak
     let pAbs = pmMbar + patm;
 
-    let z = 1;
+    let z;
     let pmBarTotal = pAbs;
 
-    if (pmBarTotal >= 1000 && pmBarTotal < 8000) {
-        z = 1 / (1 + (0.003 * pmBarTotal) / 1000);
+    if (pmBarTotal > 1000 && pmBarTotal <= 8000) {
+        z = 1 / (1 + (0.003 * pm.value) / 1000);
+    } else {
+        z = 1;
     }
-    console.log("z = " + z);
-    console.log("pmMbar = " + pmMbar);
-    console.log("pAbs = " + pAbs);
+
+    let pritisak = pAbs / Number(ps);
+    let temperatura = (ts / period.value);
+    let Kf = pritisak / temperatura;
+    console.log("Kf: " + Kf);
+
+    console.log("Koeficijent stišljivosti z = " + z);
+    console.log("P merenja, pmMbar = " + pmMbar);
+    console.log("Apsolutni P, pAbs = " + pAbs);
+    console.log("Atmosferski P, patm = " + patm);
     //patm.toFixed(1);
     let proteklaKolicina;
     let normalnaKolicina;
@@ -78,6 +87,13 @@ const kWh = () => {
     } else {
         err2.innerHTML = "";
     }
+    if (tkomp.value === "da") {
+        proteklaKolicina = Math.round(Number(vr.value) * (pritisak * z));
+        protekla.textContent = Math.round(Number(proteklaKolicina)) + " m³";
+    } else {
+        proteklaKolicina = Number(vr.value) * pritisak * temperatura * z;
+        protekla.textContent = Math.round(proteklaKolicina) + " m³";
+    }
 
     if (vr.value == "" || vr.value < 0 || vr.value > 100000) {
         err1.innerHTML =
@@ -93,9 +109,7 @@ const kWh = () => {
         return;
     }
 
-    proteklaKolicina = Math.round(
-        Number(vr.value) * (pAbs / Number(ps)) * (ts / period.value) * z,
-    );
+
     protekla.textContent = Math.round(proteklaKolicina) + " m³";
 
     if (qkWh.value == "" || qkWh.value < 0) {
@@ -140,12 +154,12 @@ const kWh = () => {
 
     normalna.textContent = Math.round(normalnaKolicina) + " m³";
 
-    console.log("Vr: " + vr.value);
-    console.log("pm: " + pm.value);
-    console.log("ps: " + ps);
-    console.log("Patm: " + patm);
-    console.log("ts: " + ts);
-    console.log("Period: " + period.value);
+    console.log("Izmerena količina Vr: " + vr.value);
+    console.log("Uneseni pritisak merenja pm: " + pm.value);
+    console.log("Pritisak u standardnom stanju, ps: " + ps);
+    console.log("Atmosferski pritisak, Patm: " + patm);
+    console.log("Temperatura gasa u standardnom stanju, ts: " + ts);
+    console.log("Odabrani period (Kelvin): " + period.value);
     console.log("Protekla kolicina: " + proteklaKolicina);
     console.log("Normalna kolicina: " + normalnaKolicina);
     console.log("Energija kWh: " + Math.round(normalnaKolicina * GCV.value));
